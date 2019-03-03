@@ -11,6 +11,7 @@ import org.junit.jupiter.api.BeforeEach;
 import org.junit.jupiter.api.BeforeAll;
 import org.junit.jupiter.api.Test;
 import static org.junit.jupiter.api.Assertions.*;
+import org.junit.jupiter.api.DisplayName;
 
 /**
  *
@@ -42,15 +43,66 @@ public class AppMainTest {
      * Test of division method, of class AppMain.
      */
     @Test
-    public void testDivision() {
+    public void testDivision_Throw_IllegalArgumentException() {
         System.out.println("division");
-        double a = 0.0;
+        double a = 5;
         double b = 0.0;
-        double expResult = 0.0;
-        double result = AppMain.division(a, b);
-        assertEquals(expResult, result, 0.0);
-        // TODO review the generated test code and remove the default call to fail.
-        fail("The test case is a prototype.");
+        
+        
+        assertThrows(IllegalArgumentException.class, () -> {
+       
+           AppMain.division(a, b);
+//          
+    });
+       
     }
+    
+        @Test
+    public void testDivision () {
+        System.out.println("division normal");
+        double a = 6;
+        double b = 2;
+        double result = AppMain.division(a,b);
+        
+        assertEquals(result, 3);
+       
+//          
+    }
+    
+        @Test
+        @DisplayName("Test addition")
+    public void testAddition() {
+        
+        double a = 5;
+        double b = 2;
+        double result = AppMain.addition(a,b);
+            assertEquals(result, 7);
+
+       
+    }
+    
+            @Test
+    public void testSoustraction() {
+        System.out.println("Soutraction");
+        double a = 5;
+        double b = 2;
+        double result = AppMain.soustraction(a,b);
+            assertEquals(result, 3);
+
+       
+    }
+    
+               @Test
+    public void testMultiplication() {
+        System.out.println("Multiplication");
+        double a = 5;
+        double b = 2;
+        double result = AppMain.multiplication(a,b);
+            assertEquals(result, 10);
+
+       
+    }
+    
+
     
 }
